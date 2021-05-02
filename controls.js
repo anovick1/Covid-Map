@@ -15,14 +15,7 @@ function getColor(d) {
                                         d > 20000   ? '#faffc5' :
                                             '#fff5f0';
 }
-// #c6dbef
-// #9ecae1
 
-// #6baed6
-// #4292c6
-// #2171b5
-// #08519c
-// #08306b
 //GET CHLOR COLORS BASED ON CASES PER MIL NUM
 function getColor(d) {
     return d > 1200000 ? '#08306b' :
@@ -46,21 +39,7 @@ function getColor(d) {
                                     d > 20000   ? '#faffc5' :
                                         '#fff5f0';
 }
-// function getColor(d) {
-//     return d > 130000 ? '#2b0015' :
-//     d > 120000 ? '#43001d' :
-//     d > 110000 ? '#5c0026' :
-//         d > 100000 ? '#800026' :
-//             d > 90000  ? '#BD0026' :
-//                 d > 80000  ? '#E31A1C' :
-//                     d > 70000  ? '#FC4E2A' :
-//                         d > 60000   ? '#FD8D3C' :
-//                             d > 50000   ? '#FEB24C' :
-//                                 d > 40000   ? '#FED976' :
-//                                     d > 30000   ? '#FFEDA0' :
-//                                         d > 20000   ? '#faffc5' :
-//                                             '#fff5f0';
-// }
+
 
 
 // CREATE FUNCTION TO STYLE AND APPLY GET COLOR
@@ -111,9 +90,6 @@ milInfo.update2 = function (props) {
         '<b>' + props.name + '</b><br />' + props.testsPerOneMillion + ' tests per million since June 1 2019<sup></sup>'
         : 'Hover over a state');
 };
-//milInfo.addTo(map);
-
-
 
 
 
@@ -133,16 +109,16 @@ function highlightFeature(e) {
     }
 
     milInfo.update(layer.feature.properties);
-   // testsInfo.update(layer.feature.properties);
+   
 }
 
 
 function resetHighlight(e) {
 
     geo.resetStyle(e.target);
- //   testsLayer.resetStyle(e.target);
+ 
     milInfo.update();
- //   testsInfo.update();
+ 
 }
 // *** LAYER EVENTS *** //
 function highlightFeature2(e) {
@@ -160,16 +136,14 @@ function highlightFeature2(e) {
     }
 
     milInfo.update2(layer.feature.properties);
-    // testsInfo.update(layer.feature.properties);
+    
 }
 
 
 function resetHighlight2(e) {
 
-  //  geo.resetStyle(e.target);
     testsLayer.resetStyle(e.target);
     milInfo.update2();
-    //   testsInfo.update();
 }
 
 
@@ -177,14 +151,12 @@ function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
-        //click: geo.flyToBounds()
     });
 }
 function onEachFeature2(feature, layer) {
     layer.on({
         mouseover: highlightFeature2,
         mouseout: resetHighlight2,
-        //click: geo.flyToBounds()
     });
 }
 // ***  PER MIL CHLORO LEGEND  *** //
@@ -194,16 +166,7 @@ var milLegend = L.control({position: 'bottomright'});
 var testsLegend = L.control({position: 'bottomleft'});
 
 milLegend.onAdd = function (map) {
-//     milLegend.onAdd = function (map) {
-// //     d > 1100000 ? '#08519c' :
-// //         d > 1000000 ? '#2171b5' :
-// //             d > 900000 ? '#4292c6' :
-// //                 d > 800000 ? '#6baed6' :
-// //                     d > 700000 ? '#9ecae1' :
-// //                         d > 600000 ? '#c6dbef' :
-// //                             d > 500000 ? '#deebf7' :
-// //                                 d > 400000 ? '#f7fbff' :
-// //                                     d > 130000 ? '#4f001a' :
+
     var div = L.DomUtil.create('div', 'info legend'),
 
         grades = [30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000,130000,400000,500000,600000, 700000,800000,900000,1000000,1100000],

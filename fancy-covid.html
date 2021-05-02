@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!-- end point w JSON data: https://corona.lmao.ninja/v3/covid-19/countries-->
-<!--end point w JSON data by STATE: https://corona.lmao.ninja/v3/covid-19/states-->
-<!--https://www.colbyfayock.com/2020/03/how-to-create-a-coronavirus-covid-19-dashboard-map-app-with-gatsby-and-leaflet-->
+
 <html>
 <head>
     <title>covid map</title>
@@ -17,21 +15,7 @@
 
     <link rel="stylesheet" href="style.css" />
 
-<!--    <style>-->
-<!--        html, body {-->
-<!--            height: 100%;-->
-<!--            margin: 0;-->
-<!--        }-->
-<!--        #map {-->
-<!--            width: 100%;-->
-<!--            height: 100%;-->
-<!--        }-->
-<!--    </style>-->
 
-<!--    <style>#map { width: 1000px; height: 1000px; }-->
-<!--    .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }-->
-<!--    .legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }-->
-<!--    </style>-->
     <script src="https://d3js.org/d3-quadtree.v1.min.js"></script>
 
 
@@ -65,7 +49,7 @@
         onEachFeature: onEachFeature2,
 
     });
-   // geo.addTo(map);
+  
 
 
 
@@ -76,8 +60,7 @@
         "bounds":bounds,
 
 
-      //  "legend": milLegend
-
+      
     };
 
     var controlLayers = L.control.layers(overlayMaps,null); // null means you can only have one layer selected at once, is essential to layer control
@@ -91,40 +74,26 @@
     // ** LEGEND & INFO CONTROL ** //
     // to fix order should change innerHTML instead of adding / removing from map so that info can always be added to map
     map.on("baselayerchange", function (eventLayer) {
-      //  console.log("COVID LAYER TRIGGERED");
         if (eventLayer.name === 'tests') {
-           // milLegend.addTo(this);
-          //  milInfo.addTo(this);
             document.querySelector("#map > div.leaflet-control-container > div.leaflet-top.leaflet-right > div.info.leaflet-control > h4").innerText = "US Tests Per Million since June 1, 2019";
             milInfo.innerHTML = "US Tests Cases Per Million since June 1, 2019";
-            // this.removeControl(milLegend);
-            // this.removeControl(milInfo);
-            // testsInfo.addTo(this);
-            // testsLegend.addTo(this);
             console.log("TESTS LAYER TRIGGERED");
         }
 
         else if (eventLayer.name === 'covid') {
-        //    milInfo.innerHTML = "US Covid Cases Per Million since June 1, 2019";
             document.querySelector("#map > div.leaflet-control-container > div.leaflet-top.leaflet-right > div.info.leaflet-control > h4").innerText = "US Cases Per Million since June 1, 2019";
-           // milLegend.addTo(this);
-         //   milInfo.addTo(this);
             console.log("COVID LAYER TRIGGERED");
 
         }
 
 
         else { // Or switch to the Population Change legend...
-            // this.removeControl(milLegend);
-            // this.removeControl(milInfo);
             document.querySelector("#map > div.leaflet-control-container > div.leaflet-top.leaflet-right > div.info.leaflet-control > h4").innerText = "Select a Layer";
             console.log(eventLayer.name);
             milInfo.innerHTML = "Select a layer";
-          //  milInfo.addTo(this);
 
         }
     });
-    // controlLayers.addTo(map);
 
 
 
