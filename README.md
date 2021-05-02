@@ -13,5 +13,5 @@ To create this map we used multiple software tools and APIs including:
 - P5.js
 - Turf.js
 - Data pulled from https://disease.sh
-- To make the choropleth map we used [this](https://leafletjs.com/example/choropleth) tutorial
+- To make the choropleth map we used [this](https://leafletjs.com/examples/choropleth) tutorial
 - Reffered to the leaflet.js library when making other elements such as the legend
