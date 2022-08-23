@@ -8,6 +8,7 @@ The "covid" layer shows each state's cumulative cases per million since June 1st
 The "tests" layer shows the state's cumalitive covid tests per million since June 1st 2019 on a colored scale from light blue to dark blue.
 
 To create this map we used multiple software tools and APIs including:
+
 - HTML, CSS and JavaScript
 - [Leaflet.js](https://leafletjs.com)
 - P5.js
@@ -15,3 +16,5 @@ To create this map we used multiple software tools and APIs including:
 - Data pulled from https://disease.sh
 - To make the choropleth map we used [this](https://leafletjs.com/examples/choropleth) tutorial
 - Reffered to the leaflet.js library when making other elements such as the legend
+
+<img src="./screenshot.png"/>
